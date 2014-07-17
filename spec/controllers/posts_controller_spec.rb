@@ -17,9 +17,10 @@ RSpec.describe PostsController, type: :controller do
 				expect(response).to render_template("index")
 			end
 			it 'loads all the posts into @posts' do
-				post1, post2 = Post.create(tresc: "haha",user_id:"1", autor:"ja"),Post.create(tresc: "hahahah",user_id:"2", autor:"jaaaa")	
+				post1 = Post.create(tresc: "haha",login_id:"1", autor:"ja")
+				post2 =  Post.create(tresc: "hahahah",login_id:"2", autor:"jaaaa")
 				get :index
-				expect(assigns(:post)).to match_array([post1,post2])
+				expect(assigns(:post)).to match_array([post1, post2])
 			end
 
 		end
