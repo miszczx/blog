@@ -1,0 +1,17 @@
+<h1> Twoj panel: </h1>
+<%=@login.email %>
+<hr></hr>
+<ul>
+	<li><%= link_to "logout", destroy_login_session_path, method: :delete%> </li>
+	<li><%= link_to "edit or delete account" , edit_login_registration_path %> </li>
+</ul>
+<hr></hr>
+<h3> Your posts: </h3>
+<ul>
+	<%@login.posts.each do |post| %>
+	<li>
+		<%= post.tresc %>
+		<%= link_to "show me", post_path(post.id) %>
+	</li>
+	<%end%>
+</ul>

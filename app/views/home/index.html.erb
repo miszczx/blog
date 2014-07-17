@@ -1,0 +1,21 @@
+<% if current_login %>
+<h1> Cześć <%=current_login.email%> </h1> 
+<%= link_to "twoj panel", login_path(current_login.id) %>
+<%= link_to "Sign out!", destroy_login_session_path, method: :delete %>
+<%else%>
+<h1> Czesc nieznajomy </h1>
+	<%=link_to "Registration", new_login_registration_path %>
+	<%= link_to "Sign in!", new_login_session_path %>
+<%end%>
+
+<p>
+	<%=link_to "Add new post!", new_post_path %>
+</p>
+<p>
+	<%=link_to "Posts list", posts_path %>
+</p>
+<hr></hr>
+<p>
+	<%=link_to "Users list (admin only)", logins_path %>
+</p>
+

@@ -1,0 +1,13 @@
+<%= form_for(@post) do |f| %>
+<ul>
+<% @post.errors.full_messages.each do |err| %>
+	<li><%= err %> </li>
+<%end%>
+</ul>
+	<%= f.label :tresc %>
+	<%= f.text_field :tresc %>
+	<%= f.label :autor %>
+	<%= f.text_field :autor %>
+	<%= f.hidden_field :login_id, value: current_login.id %>
+	<%= f.submit "Add!" %>
+	<% end %>

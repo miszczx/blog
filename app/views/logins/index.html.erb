@@ -1,0 +1,9 @@
+<h1>Welcome admin! </h1>
+<h1>Users list: </h1>
+<ol>
+<% @login.each do |login| %>
+	<li>
+		<%= login.email %>
+	</li>
+	<%end%>
+</ol>

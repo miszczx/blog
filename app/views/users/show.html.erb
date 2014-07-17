@@ -1,0 +1,26 @@
+<h1> One user </h1>
+<%= @user.name %>
+<%= link_to "usun", user_path(@user.id), method: :delete %>
+<%= link_to "next", user_path(@user.id.next) %>
+<p>
+	<%= link_to "Main page", root_path %>
+</p>
+<h1> User's posts </h1>
+<ul>
+	<% @user.posts.each do |post| %>
+	<li> 
+		<%= post.tresc %> 
+		<%= link_to "usun", post_path(post), method: :delete %>
+		<%= link_to "edit", edit_post_path(post)%>
+	</li>
+	<% end %>
+</ul>
+<%= link_to "Add post", new_post_path %>
+<h1> User's comments </h1>
+<ul>
+	<% @user.comments.each do |comment| %>
+	<li> 
+		<%= comment.tresc %> 
+	</li>
+	<% end %>
+</ul>

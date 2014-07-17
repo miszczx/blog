@@ -1,0 +1,13 @@
+<h1> Comment editor </h1>
+<%= form_for(@comment) do |f| %>
+<ul>
+<% @comment.errors.full_messages.each do |err| %>
+	<li><%= err %> </li>
+<%end%>
+</ul>
+	<%= f.label :tresc %>
+	<%= f.text_field :tresc %>
+	<%= f.hidden_field :login_id, value: current_login.id %>
+
+	<%= f.submit "EDIT!" %>
+	<% end %>
