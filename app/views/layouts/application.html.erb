@@ -7,11 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%=render 'layouts/partials/gora' %>
 <%if alert %>
 <p>Uwaga: <%=alert %></p>
 <%elsif notice %>
 <p>Ok: <%=notice %> </p>
 <%end%>
+
 
 
 <%= yield %>
