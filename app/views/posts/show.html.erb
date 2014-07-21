@@ -2,6 +2,17 @@
 <%= @post.tresc %>
 <p>login:
 <%= @post.login.email %> </p>
+<h1>Comments to this post </h1>
+<ul>
+	<% @post.comments.each do |comment| %>
+	<li> 
+		<%= comment.tresc  %> 
+		<%= link_to "Edit", edit_comment_path(comment) %>
+		<%= link_to "Delete", comment_path(comment), method: :delete %>
+		<%= link_to "Show", comment_path(comment) %>
+	</li>
+	<% end %>
+</ul>
 <%= link_to "usun", post_path(@post.id), method: :delete %>
 <%= link_to "next", post_path(@post.id.next) %>
 <p>

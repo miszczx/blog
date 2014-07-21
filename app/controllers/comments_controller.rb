@@ -12,9 +12,8 @@ class CommentsController <ApplicationController
 
 	def create
 		@comment=Comment.new comment_params
-
 		if @comment.save
-			redirect_to root_url, notice: "Utworzono"
+			redirect_to (Post.find(@comment.post_id)), notice: "Utworzono"
 		else
 			render 'new'
 		end
@@ -26,7 +25,7 @@ class CommentsController <ApplicationController
 	def update
 		@comment=Comment.find(params[:id])
 		if @comment.update(comment_params)
-			redirect_to root_url, notice: "Everything is fine!"
+			redirect_to Post.find(@comment.post_id), notice: "Everything is fine!"
 		else
 			render 'edit'
 		end	
@@ -34,7 +33,7 @@ class CommentsController <ApplicationController
 	def destroy
 		@comment=Comment.find(params[:id])
 		@comment.destroy
-		redirect_to root_url, alert: "usunieto"
+		redirect_to Post.find(@comment.post_id), alert: "usunieto"
     end
 	private
 	def comment_params
